@@ -251,8 +251,8 @@ def update_contact(client, contact_id: str, existing_props: dict, data: dict,
         if data.get(field) and not existing_props.get(field):
             updates[field] = data[field]
 
-    if not existing_props.get("hs_lead_source"):
-        updates["hs_lead_source"] = "Gmail"
+    if not existing_props.get("hs_analytics_source"):
+        updates["hs_analytics_source"] = "EMAIL_MARKETING"
 
     if not updates:
         return False
@@ -276,7 +276,7 @@ def update_contact(client, contact_id: str, existing_props: dict, data: dict,
 def _build_props(data: dict) -> dict:
     props: dict[str, str] = {
         "email": data["email"],
-        "hs_lead_source": "Gmail",
+        "hs_analytics_source": "EMAIL_MARKETING",  # closest allowed value for inbound Gmail
     }
     for field in ("firstname", "lastname", "company"):
         if data.get(field):
