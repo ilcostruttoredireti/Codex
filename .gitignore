@@ -1,0 +1,25 @@
+# Environment
+.env
+.env.local
+
+# Gmail OAuth tokens (contain sensitive credentials)
+token.json
+credentials.json
+
+# Runtime state
+state.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
