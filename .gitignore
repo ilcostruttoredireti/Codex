@@ -1,0 +1,19 @@
+# Environment
+.env
+
+# Gmail OAuth secrets & cached token — never commit these
+credentials.json
+token.json
+
+# Runtime state
+.gmail_state.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
