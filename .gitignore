@@ -1,0 +1,14 @@
+# Secrets & tokens — never commit these
+.env
+credentials.json
+token.json
+.sync_state.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
