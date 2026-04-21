@@ -1,0 +1,18 @@
+# Secrets & credentials
+.env
+credentials.json
+token.json
+.gmail_state.json
+*.json
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+*.log
