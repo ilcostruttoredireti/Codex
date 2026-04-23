@@ -1,0 +1,25 @@
+# Secrets — never commit these
+.env
+credentials.json
+token.json
+*.json.bak
+
+# Runtime state
+.gmail_state.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
