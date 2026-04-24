@@ -1,0 +1,18 @@
+# Sensitive credentials — never commit these
+.env
+credentials.json
+token.json
+
+# Runtime state
+.sync_state.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+dist/
+build/
+*.egg-info/
