@@ -1,0 +1,14 @@
+# OAuth tokens — mai committare
+credentials.json
+token.json
+.env
+
+# Stato runtime
+sync_state.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
