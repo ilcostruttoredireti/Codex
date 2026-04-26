@@ -1,0 +1,24 @@
+# Environment
+.env
+
+# OAuth credentials and tokens (contain secrets — never commit)
+credentials/gmail_credentials.json
+credentials/gmail_token.json
+
+# Runtime state
+state/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# Editor
+.idea/
+.vscode/
+*.swp
