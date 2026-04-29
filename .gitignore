@@ -1,0 +1,19 @@
+# Secrets & credentials — never commit these
+.env
+credentials.json
+token.json
+state.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# Editors
+.idea/
+.vscode/
+*.swp
