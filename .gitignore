@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# Secrets / runtime state – NEVER commit these
+.env
+credentials.json
+token.json
+state.json
+
+# Editor
+.vscode/
+.idea/
+*.swp
