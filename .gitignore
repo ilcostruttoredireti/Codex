@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+
+.env
+token.json
+sync_state.json
+
+.venv/
+venv/
+env/
