@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
+# Environment
+.env
+*.env
+
+# OAuth tokens (sensitive — never commit)
+token.json
+credentials.json
+
+# Sync state
+sync_state.json
+
+# Virtual environments
+.venv/
+venv/
+env/
