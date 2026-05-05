@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+  gmail-hubspot-sync:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ./credentials.json:/app/credentials.json:ro
+      - ./token.json:/app/token.json
+      - ./sync_state.json:/app/sync_state.json
