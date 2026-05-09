@@ -1,0 +1,6 @@
+tests/__pycache__/
+__pycache__/
+*.pyc
+token.json
+.gmail_state.json
+.env
