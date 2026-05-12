@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+token.json
+.processed_message_ids.json
