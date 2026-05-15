@@ -1,0 +1,15 @@
+# secrets & OAuth tokens — never commit these
+.env
+credentials.json
+token.json
+.gmail_state.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
