@@ -1,0 +1,10 @@
+.env
+credentials.json
+token.json
+gmail_state.json
+__pycache__/
+*.pyc
+*.egg-info/
+.venv*/
+dist/
+build/
