@@ -1,0 +1,17 @@
+[Unit]
+Description=Gmail → HubSpot Contact Sync
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/gmail_hubspot_sync
+EnvironmentFile=/opt/gmail_hubspot_sync/.env
+ExecStart=/opt/gmail_hubspot_sync/venv/bin/python sync.py --loop 60
+Restart=on-failure
+RestartSec=30
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
