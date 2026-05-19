@@ -1,0 +1,16 @@
+# Auth tokens — never commit these
+token.json
+credentials.json
+.env
+
+# Runtime state
+.sync_state.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
