@@ -1,0 +1,15 @@
+# OAuth tokens & secrets — never commit these
+credentials.json
+token.json
+.env
+
+# Sync state
+.sync_state.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+dist/
+*.egg-info/
