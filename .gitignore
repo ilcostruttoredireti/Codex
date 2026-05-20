@@ -1,0 +1,16 @@
+# Credenziali e token (MAI committare)
+credentials.json
+token.json
+.env
+
+# Stato runtime
+sync_state.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
