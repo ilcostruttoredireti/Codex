@@ -1,0 +1,26 @@
+# Credenziali e token (NON committare mai questi file)
+credentials.json
+token.json
+.env
+.gmail_state.json
+
+# Log
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+.DS_Store
