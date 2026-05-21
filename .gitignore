@@ -1,0 +1,16 @@
+# Credenziali OAuth — NON committare mai questi file
+token.json
+credentials.json
+.env
+
+# Stato runtime
+.gmail_state.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
