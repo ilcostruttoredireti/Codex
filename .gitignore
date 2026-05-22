@@ -1,0 +1,19 @@
+# OAuth token – contains refresh credentials, never commit
+token.json
+credentials.json
+
+# Runtime state (processed thread IDs)
+state.json
+
+# Environment
+.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
