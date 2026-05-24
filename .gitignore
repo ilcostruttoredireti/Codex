@@ -1,0 +1,32 @@
+# Credenziali OAuth Gmail - NON COMMITTARE MAI
+credentials.json
+token.json
+
+# Variabili d'ambiente
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+
+# Log
+*.log
+sync.log
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
