@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Env & secrets
+.env
+token.json
+credentials.json
+
+# Logs
+*.log
+
+# Virtualenv
+.venv/
+venv/
+env/
