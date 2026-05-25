@@ -1,0 +1,35 @@
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ── Virtualenv ────────────────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+
+# ── Credenziali (MAI tracciare!) ─────────────────────────────────────────────
+.env
+credentials.json
+token.json
+
+# ── Stato runtime ────────────────────────────────────────────────────────────
+.gmail_sync_state.json
+.test_state.json
+
+# ── Testing ───────────────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ── IDE ───────────────────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
