@@ -1,0 +1,14 @@
+# Credenziali sensibili — NON committare
+.env
+credentials.json
+gmail_token.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+venv/
+.venv/
+*.log
