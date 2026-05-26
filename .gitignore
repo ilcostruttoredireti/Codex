@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# Gmail sync runtime files (secrets & stato)
+gmail_hubspot_sync/credentials.json
+gmail_hubspot_sync/token.json
+gmail_hubspot_sync/state.json
+gmail_hubspot_sync/sync.log
+gmail_hubspot_sync/.env
+
+# Editor
+.vscode/
+.idea/
+*.swp

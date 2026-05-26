@@ -1,0 +1,14 @@
+# Gmail OAuth2
+google-api-python-client>=2.120.0
+google-auth>=2.28.0
+google-auth-oauthlib>=1.2.0
+google-auth-httplib2>=0.2.0
+
+# HTTP requests (HubSpot API)
+requests>=2.31.0
+
+# Terminal output colorato
+rich>=13.7.0
+
+# Gestione variabili d'ambiente
+python-dotenv>=1.0.0
