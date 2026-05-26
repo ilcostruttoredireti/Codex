@@ -1,0 +1,23 @@
+# Secrets - mai committare!
+.env
+credentials.json
+token.json
+*.pickle
+
+# Log
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+.Python
+
+# OS
+.DS_Store
+Thumbs.db
