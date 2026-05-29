@@ -1,0 +1,20 @@
+# Secrets & generated files
+.env
+gmail_token.json
+state.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+dist/
+build/
+*.egg-info/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
