@@ -1,0 +1,13 @@
+# OAuth / API credentials — never commit these
+credentials.json
+token.json
+.env
+
+# Runtime state
+state.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
