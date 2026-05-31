@@ -1,0 +1,8 @@
+.env
+credentials/
+state/
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
