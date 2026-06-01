@@ -1,0 +1,17 @@
+# Credenziali OAuth — NON committare mai questi file
+credentials.json
+token.json
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+
+# Stato locale
+.sync_state.json
