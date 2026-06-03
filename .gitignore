@@ -1,0 +1,23 @@
+# Credenziali — NON committare mai questi file
+config/credentials.json
+config/token.json
+.env
+
+# Dati runtime
+data/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+dist/
+build/
+
+# Ambienti virtuali
+venv/
+.venv/
+env/
