@@ -1,0 +1,63 @@
+name: Gmail → HubSpot Sync
+
+on:
+  schedule:
+    # Ogni 15 minuti (minimo supportato da GitHub Actions)
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+    inputs:
+      debug:
+        description: "Abilita log debug"
+        required: false
+        default: "false"
+
+jobs:
+  sync:
+    name: Sync contacts
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # Scrive i file di credenziali dai GitHub Secrets
+      - name: Write Gmail credentials
+        run: |
+          echo '${{ secrets.GMAIL_CREDENTIALS_JSON }}' > credentials.json
+          echo '${{ secrets.GMAIL_TOKEN_JSON }}' > token.json
+
+      - name: Run sync
+        env:
+          HUBSPOT_API_KEY: ${{ secrets.HUBSPOT_API_KEY }}
+          GMAIL_CREDENTIALS_FILE: credentials.json
+          GMAIL_TOKEN_FILE: token.json
+          SYNC_INTERVAL_SECONDS: "0"
+        run: |
+          if [ "${{ github.event.inputs.debug }}" = "true" ]; then
+            export PYTHONPATH=.
+            python -c "import logging; logging.basicConfig(level=logging.DEBUG)"
+          fi
+          python gmail_hubspot_sync.py
+
+      # Aggiorna il token se è stato rinnovato (evita scadenza)
+      - name: Update Gmail token secret (if refreshed)
+        if: always()
+        run: |
+          if [ -f token.json ]; then
+            echo "Token aggiornato. Considera di salvarlo in GMAIL_TOKEN_JSON."
+          fi
+
+      # Rimuovi i file di credenziali prima di qualsiasi upload
+      - name: Cleanup credentials
+        if: always()
+        run: rm -f credentials.json token.json
