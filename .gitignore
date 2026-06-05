@@ -1,0 +1,18 @@
+# Credenziali OAuth e token — non committare mai
+credentials.json
+token.json
+
+# Variabili d'ambiente con segreti
+.env
+
+# Stato runtime (ID email già processati)
+state/processed_ids.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
