@@ -1,0 +1,17 @@
+# Credenziali e token — non committare mai
+.env
+gmail_token.json
+credentials.json
+
+# Stato interno
+.sync_state.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
