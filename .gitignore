@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# Secrets — never commit these
+.env
+credentials.json
+token.json
+
+# Runtime state
+processed_ids.json
+
+# Editor
+.idea/
+.vscode/
+*.swp
