@@ -1,0 +1,16 @@
+# OAuth tokens & credentials — NON committare mai questi file
+gmail_token.json
+credentials.json
+.env
+
+# State file (riproducibile)
+processed_emails.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
