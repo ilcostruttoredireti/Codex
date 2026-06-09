@@ -1,0 +1,22 @@
+# Systemd unit file per eseguire il sync come servizio di sistema
+# Installazione:
+#   sudo cp gmail_hubspot_sync.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now gmail_hubspot_sync
+
+[Unit]
+Description=Gmail → HubSpot Contact Sync
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=YOUR_USER
+WorkingDirectory=/opt/gmail-hubspot-sync
+EnvironmentFile=/opt/gmail-hubspot-sync/.env
+ExecStart=/opt/gmail-hubspot-sync/venv/bin/python gmail_hubspot_sync.py
+Restart=on-failure
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
