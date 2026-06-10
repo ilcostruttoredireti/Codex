@@ -1,0 +1,15 @@
+# Credenziali sensibili – NON committare mai questi file
+.env
+credentials.json
+token.json
+sync_state.json
+sync.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
