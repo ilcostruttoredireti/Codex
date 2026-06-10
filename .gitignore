@@ -1,0 +1,30 @@
+# OAuth tokens and credentials — NEVER commit these
+token.json
+credentials.json
+*.pickle
+
+# Sync state
+.sync_state.json
+
+# Environment
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+*.egg
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE
+.idea/
+.vscode/
+*.swp
