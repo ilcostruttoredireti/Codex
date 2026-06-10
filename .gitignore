@@ -1,0 +1,6 @@
+gmail_hubspot_sync/__pycache__/
+gmail_hubspot_sync/tests/__pycache__/
+gmail_hubspot_sync/.sync_state.json
+gmail_hubspot_sync/token.json
+gmail_hubspot_sync/credentials.json
+gmail_hubspot_sync/.env
