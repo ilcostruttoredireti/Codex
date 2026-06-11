@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.env
+credentials.json
+token.json
+.sync_state.json
+*.egg-info/
+dist/
+.venv/
