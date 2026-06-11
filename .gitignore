@@ -1,0 +1,17 @@
+# Credenziali — NON committare mai questi file
+credentials.json
+token.pickle
+.env
+
+# Stato runtime
+state.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
