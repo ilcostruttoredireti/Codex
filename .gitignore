@@ -1,0 +1,18 @@
+# Credenziali OAuth2 Gmail – NON committare mai
+credentials.json
+token.json
+
+# Stato locale (traccia gli ID già processati)
+processed_emails.json
+
+# Variabili d'ambiente
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
