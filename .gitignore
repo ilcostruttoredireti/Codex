@@ -1,0 +1,16 @@
+# OAuth tokens and credentials — NEVER commit these
+credentials.json
+token.json
+*.json
+!.sync_state.json.example
+
+# Sync state
+.sync_state.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.env
