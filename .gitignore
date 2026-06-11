@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+credentials.json
+token.json
+sync_state.json
+sync.log
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
