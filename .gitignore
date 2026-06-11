@@ -1,0 +1,18 @@
+# Credenziali e token — NON committare mai questi file
+.env
+credentials.json
+token.json
+
+# Stato runtime
+sync_state.json
+*.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
