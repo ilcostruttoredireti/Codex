@@ -1,0 +1,24 @@
+# Credenziali e segreti
+credentials/gmail_token.json
+credentials/gmail_credentials.json
+.env
+
+# Stato runtime
+data/sync_state.json
+data/sync.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+.eggs/
+
+# OS
+.DS_Store
+Thumbs.db
