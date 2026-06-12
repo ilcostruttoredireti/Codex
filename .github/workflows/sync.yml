@@ -1,0 +1,52 @@
+name: Gmail → HubSpot Sync
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # ogni 30 minuti
+  workflow_dispatch:           # trigger manuale dalla UI GitHub
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # Il token OAuth Gmail viene rigenerato ogni run dal refresh_token
+      - name: Write Gmail credentials
+        run: |
+          echo '${{ secrets.GMAIL_CREDENTIALS_JSON }}' > credentials.json
+          echo '${{ secrets.GMAIL_TOKEN_JSON }}'       > token.json
+
+      - name: Run sync (single pass)
+        env:
+          HUBSPOT_ACCESS_TOKEN: ${{ secrets.HUBSPOT_ACCESS_TOKEN }}
+          GMAIL_PROCESSED_LABEL: "HubSpot Synced"
+          LOG_LEVEL: INFO
+        run: python main.py --once
+
+      # Il token aggiornato viene riscritto; salvalo per il prossimo run
+      - name: Store refreshed Gmail token
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: token.json
+          key: gmail-token-${{ github.run_id }}
+
+      - name: Upload sync log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sync-log-${{ github.run_id }}
+          path: gmail_hubspot_sync.log
+          retention-days: 7
