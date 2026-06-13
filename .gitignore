@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+
+# Runtime state
+sync_state.json
+
+# Credentials / secrets
+credentials.json
+token.json
+.env
+*.key
+*.pem
