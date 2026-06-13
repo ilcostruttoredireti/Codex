@@ -1,0 +1,17 @@
+# OAuth tokens — never commit
+credentials.json
+token.json
+
+# Sync log (verbose, not needed in git)
+sync_log.jsonl
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
