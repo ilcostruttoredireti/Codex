@@ -1,0 +1,49 @@
+{
+  "last_sync": "2026-06-14T00:00:00+00:00",
+  "processed_thread_ids": [
+    "19ec1937073081cf",
+    "19ec0a7893ec38b6",
+    "19ec07fd85dc97c0",
+    "19ec03fb4747f7eb",
+    "19ec03f6c0a6bc28",
+    "19ebd9de6f8282a0",
+    "19ebc3971a2ed296",
+    "19ebc3104adb2551",
+    "19ebb7ad74baedc0",
+    "19ebb19d3f8854e3",
+    "19ebaf8036091d97",
+    "19ebaf7b1e462738",
+    "19ebaf642ce5085e",
+    "19ebad071bda160b",
+    "19eb8cbcd511e96b",
+    "19eb8cbad676135d",
+    "19eb8cb7948bf7a5",
+    "19eb8cb4727acad6",
+    "19eb7d5390f89139",
+    "19eb728c83018e05"
+  ],
+  "stats": {
+    "created": 0,
+    "updated": 0,
+    "ignored": 17
+  },
+  "last_run_results": [
+    {"status": "Ignorato", "email": "ufficiostampa@mayaamenduni.com",         "hubspot_id": "774742758626"},
+    {"status": "Ignorato", "email": "galleria@gallerianazionalemarche.it",     "hubspot_id": "759075626223"},
+    {"status": "Ignorato", "email": "tuttestoriestampa@gmail.com",             "hubspot_id": "797632185541"},
+    {"status": "Ignorato", "email": "press@pkcommunication.it",                "hubspot_id": "400756734162"},
+    {"status": "Ignorato", "email": "ufficio.stampa@comune.sanseverinomarche.mc.it", "hubspot_id": "779738043603"},
+    {"status": "Ignorato", "email": "ufficiostampa@asppalermo.org",            "hubspot_id": "784137763036"},
+    {"status": "Ignorato", "email": "ufficiostampa@cooperativemarche.it",      "hubspot_id": "784135449832"},
+    {"status": "Ignorato", "email": "press@mannuccionline.com",                "hubspot_id": "775149052109"},
+    {"status": "Ignorato", "email": "ufficiostampapugliaculture@gmail.com",    "hubspot_id": "785918822627"},
+    {"status": "Ignorato", "email": "filippo.lippi.1987@gmail.com",            "hubspot_id": "797630231762"},
+    {"status": "Ignorato", "email": "press@altabadia.org",                     "hubspot_id": "784153538785"},
+    {"status": "Ignorato", "email": "alerenzetti11@gmail.com",                 "hubspot_id": "614199897309"},
+    {"status": "Ignorato", "email": "media@xiem.ch",                           "hubspot_id": "779738869978"},
+    {"status": "Ignorato", "email": "organizzazione@casadipulcinella.it",      "hubspot_id": "759076754649"},
+    {"status": "Ignorato", "email": "asmarabassetti@gmail.com",                "hubspot_id": "797627349200"},
+    {"status": "Ignorato", "email": "sarah.sibiriu@omnifiladelfia.edu.it",     "hubspot_id": "784136362213"},
+    {"status": "Ignorato", "email": "pressoffice@italcommunications.it",       "hubspot_id": "794246921413"}
+  ]
+}
