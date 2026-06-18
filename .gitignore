@@ -1,0 +1,17 @@
+# Credentials & secrets — NEVER commit these
+credentials.json
+token.json
+.env
+
+# Sync state
+sync_state.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
