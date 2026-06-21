@@ -1,0 +1,61 @@
+{
+  "routine": "Gmail → HubSpot Contact Sync",
+  "run_date": "2026-06-21T05:04:28Z",
+  "gmail_account": "pubblica.latestata@gmail.com",
+  "hubspot_account": 146598757,
+  "period_scanned": "ultimi 7 giorni",
+  "threads_found": 50,
+  "unique_senders_processed": 4,
+  "skipped_senders": [
+    { "email": "cristian.mameli.editore@gmail.com", "reason": "proprietario account" },
+    { "email": "notification@priority.facebookmail.com", "reason": "notifica automatica" },
+    { "email": "pageupdates@facebookmail.com", "reason": "notifica automatica" }
+  ],
+  "contacts_processed": [
+    {
+      "email": "redazione@latestata.it",
+      "nome": "Cristian Mameli",
+      "azienda": "Latestata",
+      "dominio": "latestata.it",
+      "stato": "AGGIORNATO",
+      "hubspot_id": 395702512840,
+      "note_id": 498923303149,
+      "ultima_email": "2026-06-20"
+    },
+    {
+      "email": "galleria@gallerianazionalemarche.it",
+      "nome": "Galleria Nazionale Marche",
+      "azienda": "Galleria Nazionale Marche",
+      "dominio": "gallerianazionalemarche.it",
+      "stato": "AGGIORNATO",
+      "hubspot_id": 759075626223,
+      "note_id": 498897073385,
+      "ultima_email": "2026-06-18"
+    },
+    {
+      "email": "info@borgoinjazzfestival.it",
+      "nome": "Nicola Concettini",
+      "azienda": "Borgo in Jazz Festival",
+      "dominio": "borgoinjazzfestival.it",
+      "stato": "AGGIORNATO",
+      "hubspot_id": 801264550128,
+      "note_id": 498811899127,
+      "ultima_email": "2026-06-18"
+    },
+    {
+      "email": "ufficiostampa@mayaamenduni.com",
+      "nome": "Maya Amenduni",
+      "azienda": "Maya Amenduni",
+      "dominio": "mayaamenduni.com",
+      "stato": "AGGIORNATO",
+      "hubspot_id": 774742758626,
+      "note_id": 498869922035,
+      "ultima_email": "2026-06-17"
+    }
+  ],
+  "summary": {
+    "creati": 0,
+    "aggiornati": 4,
+    "ignorati": 3
+  }
+}
