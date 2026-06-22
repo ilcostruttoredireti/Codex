@@ -1,0 +1,28 @@
+{
+  "processed_thread_ids": [
+    "19eef46445bc5fcc",
+    "19eef3e4278cb6ee",
+    "19eef3de3dda0a95",
+    "19eef364ff62a696",
+    "19eef355d15259f0",
+    "19eef3357db24d69",
+    "19eef1d5b9281db9",
+    "19eef1ce4628874d",
+    "19eef17c84e2d767",
+    "19eef0f0807b3cba",
+    "19eeee3eff7c395f",
+    "19eeee3520242109",
+    "19eee08fb92ec70a",
+    "19eee0813568d47e",
+    "19eebf3ed58fd0d9",
+    "19eeabb6aeb3c0c4"
+  ],
+  "last_sync": "2026-06-22T15:05:25Z",
+  "contacts_processed": {
+    "redazione@latestata.it": {"hubspot_id": 395702512840, "status": "Aggiornato"},
+    "galleria@gallerianazionalemarche.it": {"hubspot_id": 759075626223, "status": "Aggiornato"},
+    "mayaamenduni@gmail.com": {"hubspot_id": 769170699507, "status": "Aggiornato"},
+    "pageupdates@facebookmail.com": {"hubspot_id": null, "status": "Ignorato"},
+    "cristian.mameli.editore@gmail.com": {"hubspot_id": null, "status": "Ignorato (utente)"}
+  }
+}
