@@ -1,0 +1,10 @@
+.env
+token.json
+credentials.json
+.sync_state.json
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+sync.log
