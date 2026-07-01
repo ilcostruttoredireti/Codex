@@ -1,0 +1,43 @@
+name: Gmail → HubSpot Contact Sync
+
+on:
+  schedule:
+    # Runs every hour
+    - cron: "0 * * * *"
+  workflow_dispatch:
+    inputs:
+      search_days:
+        description: "Days back to scan inbox"
+        required: false
+        default: "1"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Write Gmail token
+        run: echo '${{ secrets.GMAIL_TOKEN_JSON }}' > token.json
+
+      - name: Write Gmail credentials
+        run: echo '${{ secrets.GMAIL_CREDENTIALS_JSON }}' > credentials.json
+
+      - name: Run sync
+        env:
+          HUBSPOT_API_TOKEN: ${{ secrets.HUBSPOT_API_TOKEN }}
+          GMAIL_TOKEN_FILE: token.json
+          GMAIL_CREDENTIALS_FILE: credentials.json
+          SEARCH_DAYS: ${{ github.event.inputs.search_days || '1' }}
+        run: python src/gmail_hubspot_sync.py
