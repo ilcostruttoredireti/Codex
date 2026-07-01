@@ -1,0 +1,14 @@
+{
+  "name": "gmail-hubspot-sync",
+  "version": "1.0.0",
+  "description": "Monitora email Gmail in arrivo e sincronizza i mittenti come contatti HubSpot",
+  "type": "module",
+  "main": "src/sync.js",
+  "scripts": {
+    "sync": "node src/sync.js",
+    "test": "node src/sync.js --dry-run"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
