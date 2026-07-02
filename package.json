@@ -1,0 +1,15 @@
+{
+  "name": "gmail-hubspot-sync",
+  "version": "1.0.0",
+  "description": "Syncs inbound Gmail senders as contacts in HubSpot",
+  "main": "gmail-hubspot-sync.js",
+  "scripts": {
+    "sync": "node gmail-hubspot-sync.js"
+  },
+  "dependencies": {
+    "googleapis": "^140.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
