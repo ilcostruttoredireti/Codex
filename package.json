@@ -1,0 +1,14 @@
+{
+  "name": "gmail-hubspot-sync",
+  "version": "1.0.0",
+  "description": "Monitors Gmail inbox and syncs sender contacts to HubSpot",
+  "main": "src/gmail-hubspot-sync.js",
+  "scripts": {
+    "start": "node src/gmail-hubspot-sync.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["gmail", "hubspot", "crm", "sync", "contacts"],
+  "license": "MIT"
+}
