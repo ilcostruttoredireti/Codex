@@ -1,0 +1,33 @@
+{
+  "run_date": "2026-07-03",
+  "emails_scanned": 48,
+  "unique_senders_processed": 19,
+  "results": [
+    {"status": "Ignorato", "email": "team@moonshot.ai",            "id": "812076285140"},
+    {"status": "Ignorato", "email": "info@coinranking.com",        "id": "813731611872", "note": "Creato in questa sessione"},
+    {"status": "Ignorato", "email": "alessio@startupgeeks.it",     "id": "417261463799"},
+    {"status": "Ignorato", "email": "info@metricool.com",          "id": "813697841381", "note": "Creato in questa sessione"},
+    {"status": "Ignorato", "email": "support@fatjoe.com",          "id": "811676857565"},
+    {"status": "Ignorato", "email": "team@ship.emergent.sh",       "id": "813601677538"},
+    {"status": "Ignorato", "email": "info@bdmassociati.it",        "id": "813530597570"},
+    {"status": "Ignorato", "email": "pasquale@iaspiegatasemplice.it","id": "431403283697"},
+    {"status": "Ignorato", "email": "info@aliceemichael.it",       "id": "813419652329"},
+    {"status": "Ignorato", "email": "contact@scrapingbee.com",     "id": "813059851469"},
+    {"status": "Ignorato", "email": "info@mircogasparotto.com",    "id": "811262434547"},
+    {"status": "Ignorato", "email": "redazione@startupitalia.eu",  "id": "439389758691"},
+    {"status": "Ignorato", "email": "si.quan@ahrefs.com",          "id": "812989299932"},
+    {"status": "Ignorato", "email": "info@seozoom.it",             "id": "811584337117"},
+    {"status": "Ignorato", "email": "contact@4fund.com",           "id": "751145953479"},
+    {"status": "Ignorato", "email": "hello@news.surecart.com",     "id": "812973854927"},
+    {"status": "Ignorato", "email": "support@wpmailsmtp.com",      "id": "813074475251"},
+    {"status": "Ignorato", "email": "dailybriefing@thomsonreuters.com","id": "407641562303"},
+    {"status": "Ignorato", "email": "campaigntrail@thomsonreuters.com","id": "407708777684"}
+  ],
+  "summary": {
+    "Creato": 2,
+    "Aggiornato": 0,
+    "Ignorato": 17,
+    "Errore": 0,
+    "Saltato_automatizzato": 29
+  }
+}
