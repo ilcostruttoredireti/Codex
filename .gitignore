@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# OAuth tokens and secrets — never commit these
+credentials.json
+token.json
+.env
+*.env
+
+# Sync state file (contains processed thread IDs)
+.gmail_sync_state.json
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
