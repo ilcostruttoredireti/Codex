@@ -1,0 +1,19 @@
+{
+  "name": "gmail-hubspot-sync",
+  "version": "1.0.0",
+  "description": "Monitora Gmail e sincronizza automaticamente i contatti in HubSpot",
+  "main": "src/sync.js",
+  "type": "module",
+  "scripts": {
+    "sync": "node src/sync.js",
+    "sync:dry": "node src/sync.js --dry-run"
+  },
+  "dependencies": {
+    "googleapis": "^144.0.0",
+    "@hubspot/api-client": "^11.0.0",
+    "dotenv": "^16.4.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
