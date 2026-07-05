@@ -1,0 +1,47 @@
+name: Gmail → HubSpot Sync
+
+on:
+  schedule:
+    # Every hour, Monday–Saturday
+    - cron: "0 * * * 1-6"
+  workflow_dispatch:
+    inputs:
+      newer_than:
+        description: "Look-back window (e.g. 1d, 7d)"
+        required: false
+        default: "1d"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Write Gmail token
+        env:
+          GMAIL_TOKEN_JSON: ${{ secrets.GMAIL_TOKEN_JSON }}
+        run: echo "$GMAIL_TOKEN_JSON" > gmail_token.json
+
+      - name: Write Gmail credentials
+        env:
+          GMAIL_CREDENTIALS_JSON: ${{ secrets.GMAIL_CREDENTIALS_JSON }}
+        run: echo "$GMAIL_CREDENTIALS_JSON" > credentials.json
+
+      - name: Run sync
+        env:
+          HUBSPOT_ACCESS_TOKEN: ${{ secrets.HUBSPOT_ACCESS_TOKEN }}
+          GMAIL_TOKEN_FILE: gmail_token.json
+          GMAIL_CREDENTIALS_FILE: credentials.json
+        run: |
+          python gmail_hubspot_sync.py \
+            --newer-than "${{ github.event.inputs.newer_than || '1d' }}"
