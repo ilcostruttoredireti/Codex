@@ -1,0 +1,18 @@
+# Credenziali e segreti (NON committare mai questi file)
+credentials.json
+token.json
+.env
+*.env
+
+# Stato locale di sync
+.sync_state.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
