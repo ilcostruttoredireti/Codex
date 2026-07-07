@@ -1,0 +1,48 @@
+name: Gmail → HubSpot Contact Sync
+
+on:
+  schedule:
+    # Run every hour
+    - cron: "0 * * * *"
+  workflow_dispatch:
+    inputs:
+      lookback_hours:
+        description: "Hours to look back for emails"
+        default: "24"
+        required: false
+
+env:
+  HUBSPOT_API_KEY: ${{ secrets.HUBSPOT_API_KEY }}
+  LOOKBACK_HOURS: ${{ github.event.inputs.lookback_hours || '1' }}
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Write Gmail token
+        run: echo '${{ secrets.GMAIL_TOKEN_JSON }}' > gmail_token.json
+
+      - name: Write Gmail credentials
+        run: echo '${{ secrets.GMAIL_CREDENTIALS_JSON }}' > gmail_credentials.json
+
+      - name: Run sync
+        run: python gmail_to_hubspot_sync.py | tee sync_output.json
+
+      - name: Upload sync report
+        uses: actions/upload-artifact@v4
+        with:
+          name: sync-report-${{ github.run_id }}
+          path: sync_output.json
+          retention-days: 30
