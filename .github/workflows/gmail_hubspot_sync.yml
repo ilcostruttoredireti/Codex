@@ -1,0 +1,58 @@
+name: Gmail → HubSpot Contact Sync
+
+on:
+  schedule:
+    # Runs every 30 minutes
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Preview without making changes"
+        type: boolean
+        default: false
+      full_scan:
+        description: "Ignore last-sync timestamp (re-process all)"
+        type: boolean
+        default: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Restore Gmail OAuth token
+        run: echo '${{ secrets.GMAIL_TOKEN_JSON }}' > token.json
+
+      - name: Restore sync state
+        uses: actions/cache@v4
+        with:
+          path: sync_state.json
+          key: sync-state-${{ github.run_id }}
+          restore-keys: |
+            sync-state-
+
+      - name: Run sync
+        env:
+          HUBSPOT_API_TOKEN: ${{ secrets.HUBSPOT_API_TOKEN }}
+        run: |
+          ARGS=""
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          if [ "${{ github.event.inputs.full_scan }}" = "true" ]; then ARGS="$ARGS --full-scan"; fi
+          python gmail_hubspot_sync.py $ARGS
+
+      - name: Save sync state
+        uses: actions/cache@v4
+        with:
+          path: sync_state.json
+          key: sync-state-${{ github.run_id }}
