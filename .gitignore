@@ -1,0 +1,17 @@
+# Credenziali e token (non committare mai)
+.env
+credentials.json
+token.json
+*.json.bak
+
+# Stato interno
+.processed_ids.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+dist/
+*.egg-info/
