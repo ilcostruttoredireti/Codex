@@ -1,0 +1,49 @@
+name: Gmail → HubSpot Sync
+
+on:
+  schedule:
+    # Ogni ora, 7 giorni su 7
+    - cron: "0 * * * *"
+  workflow_dispatch:
+    inputs:
+      hours:
+        description: "Finestra temporale in ore"
+        required: false
+        default: "24"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Write Gmail token from secret
+        run: echo '${{ secrets.GMAIL_TOKEN_JSON }}' > token.json
+
+      - name: Write Gmail credentials from secret
+        run: echo '${{ secrets.GMAIL_CREDENTIALS_JSON }}' > credentials.json
+
+      - name: Run sync
+        env:
+          HUBSPOT_API_KEY: ${{ secrets.HUBSPOT_API_KEY }}
+          GMAIL_CREDENTIALS_PATH: credentials.json
+        run: python gmail_hubspot_sync.py --hours ${{ github.event.inputs.hours || '2' }}
+
+      - name: Persist processed IDs cache
+        if: always()
+        uses: actions/cache@v4
+        with:
+          path: .processed_ids.json
+          key: processed-ids-${{ github.run_id }}
+          restore-keys: processed-ids-
