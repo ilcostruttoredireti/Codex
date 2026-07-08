@@ -1,0 +1,44 @@
+name: Gmail → HubSpot Sync
+
+on:
+  schedule:
+    # Every hour
+    - cron: "0 * * * *"
+  workflow_dispatch:
+    inputs:
+      hours_back:
+        description: "Hours to look back"
+        required: false
+        default: "1"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Restore Gmail token
+        run: |
+          echo "${{ secrets.GMAIL_TOKEN_JSON }}" > token.json
+
+      - name: Run sync
+        env:
+          GMAIL_CREDENTIALS_JSON: ${{ secrets.GMAIL_CREDENTIALS_JSON }}
+          HUBSPOT_API_KEY: ${{ secrets.HUBSPOT_API_KEY }}
+        run: |
+          python gmail_hubspot_sync.py --hours ${{ github.event.inputs.hours_back || '1' }}
+
+      - name: Save refreshed Gmail token
+        if: always()
+        run: |
+          if [ -f token.json ]; then
+            echo "GMAIL_TOKEN=$(cat token.json)" >> $GITHUB_OUTPUT
+          fi
