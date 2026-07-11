@@ -1,0 +1,67 @@
+[
+  {
+    "run_at": "2026-07-11T06:40:00Z",
+    "emails_scanned": 20,
+    "automated_skipped": 9,
+    "duplicates_deduplicated": 3,
+    "unique_senders_processed": 8,
+    "results": [
+      {
+        "status": "Ignorato",
+        "email": "info@scuolaecommerce.com",
+        "hubspot_id": "811588908253",
+        "company": "Scuola Ecommerce",
+        "reason": "contact already exists with all fields populated"
+      },
+      {
+        "status": "Ignorato",
+        "email": "commerciale@raffaprivatejet.com",
+        "hubspot_id": "810872065220",
+        "company": "Raffa Private Jet",
+        "reason": "contact already exists with all fields populated"
+      },
+      {
+        "status": "Ignorato",
+        "email": "staff@spiegamelofacile.com",
+        "hubspot_id": "810907574500",
+        "company": "Spiegamelofacile",
+        "reason": "contact already exists with all fields populated"
+      },
+      {
+        "status": "Ignorato",
+        "email": "general@mediacloud.press",
+        "hubspot_id": "422755645641",
+        "company": "Media Cloud",
+        "reason": "contact already exists with all fields populated"
+      },
+      {
+        "status": "Ignorato",
+        "email": "info@seozoom.it",
+        "hubspot_id": "811584337117",
+        "company": "SEOZoom",
+        "reason": "contact already exists with all fields populated"
+      },
+      {
+        "status": "Ignorato",
+        "email": "redazione@startupitalia.eu",
+        "hubspot_id": "439389758691",
+        "company": "Startup Italia",
+        "reason": "contact already exists with all fields populated"
+      },
+      {
+        "status": "Ignorato",
+        "email": "info@coinranking.com",
+        "hubspot_id": "813731611872",
+        "company": "CoinRanking",
+        "reason": "contact already exists with all fields populated"
+      },
+      {
+        "status": "Ignorato",
+        "email": "support@automatorplugin.com",
+        "hubspot_id": "818364964080",
+        "company": "Automator Plugin",
+        "reason": "contact already exists with all fields populated"
+      }
+    ]
+  }
+]
