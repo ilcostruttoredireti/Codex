@@ -1,0 +1,33 @@
+name: Gmail → HubSpot Sync
+
+on:
+  schedule:
+    # Every hour, Monday–Friday
+    - cron: "0 * * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Write Gmail token
+        run: echo '${{ secrets.GMAIL_TOKEN_JSON }}' > gmail_token.json
+
+      - name: Write Gmail credentials
+        run: echo '${{ secrets.GMAIL_CREDENTIALS_JSON }}' > credentials.json
+
+      - name: Run sync
+        env:
+          HUBSPOT_ACCESS_TOKEN: ${{ secrets.HUBSPOT_ACCESS_TOKEN }}
+          SYNC_LOOKBACK_DAYS: "1"
+        run: python gmail_hubspot_sync.py
