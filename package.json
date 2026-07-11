@@ -1,0 +1,20 @@
+{
+  "name": "gmail-hubspot-sync",
+  "version": "1.0.0",
+  "description": "Monitors Gmail inbox and syncs sender contacts to HubSpot CRM",
+  "main": "src/sync.js",
+  "scripts": {
+    "start": "node src/sync.js",
+    "sync": "node src/sync.js --once",
+    "watch": "node src/sync.js --watch"
+  },
+  "dependencies": {
+    "googleapis": "^144.0.0",
+    "@hubspot/api-client": "^11.0.0",
+    "dotenv": "^16.4.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT"
+}
