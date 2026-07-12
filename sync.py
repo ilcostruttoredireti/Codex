@@ -19,7 +19,7 @@ from typing import Literal
 
 from contact_parser import deduplicate, parse_sender
 from gmail_client import iter_inbox_senders
-from hubspot_client import create_contact, find_contact_by_email, update_contact
+from hubspot_client import create_contact, create_note, find_contact_by_email, update_contact
 
 SyncStatus = Literal["created", "updated", "ignored", "error"]
 
@@ -47,6 +47,7 @@ def _run_once(days_back: int) -> list[SyncResult]:
 
             if existing is None:
                 new_id = create_contact(contact)
+                create_note(new_id)
                 results.append(SyncResult(
                     email=contact.email,
                     status="created",
@@ -55,6 +56,8 @@ def _run_once(days_back: int) -> list[SyncResult]:
                 ))
             else:
                 updated = update_contact(existing.id, contact, existing)
+                if updated:
+                    create_note(existing.id)
                 status: SyncStatus = "updated" if updated else "ignored"
                 results.append(SyncResult(
                     email=contact.email,

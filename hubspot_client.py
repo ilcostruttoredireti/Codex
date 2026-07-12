@@ -10,8 +10,7 @@ _BASE = "https://api.hubapi.com"
 _CONTACTS_ENDPOINT = f"{_BASE}/crm/v3/objects/contacts"
 _SEARCH_ENDPOINT = f"{_CONTACTS_ENDPOINT}/search"
 
-INBOUND_TAG = "Inbound Gmail"
-LEAD_SOURCE = "Gmail"
+INBOUND_NOTE = "Inbound Gmail — contact synced from Gmail inbox"
 
 
 def _token() -> str:
@@ -35,7 +34,6 @@ class HubSpotContact:
     first_name: str
     last_name: str
     company: str
-    lead_source: str
 
 
 def find_contact_by_email(email: str) -> Optional[HubSpotContact]:
@@ -59,16 +57,14 @@ def find_contact_by_email(email: str) -> Optional[HubSpotContact]:
         first_name=props.get("firstname", ""),
         last_name=props.get("lastname", ""),
         company=props.get("company", ""),
-        lead_source=props.get("hs_lead_source", ""),
     )
 
 
 def _build_properties(contact_info, existing: Optional[HubSpotContact] = None) -> dict:
-    """Build the properties dict for create / update calls."""
+    """Build the properties dict for create / update calls (writable fields only)."""
     props: dict = {}
 
     if existing is None:
-        # New contact — set everything we know
         props["email"] = contact_info.email
         if contact_info.first_name:
             props["firstname"] = contact_info.first_name
@@ -76,19 +72,14 @@ def _build_properties(contact_info, existing: Optional[HubSpotContact] = None) -
             props["lastname"] = contact_info.last_name
         if contact_info.company:
             props["company"] = contact_info.company
-        props["hs_lead_source"] = LEAD_SOURCE
-        props["hs_analytics_source_data_1"] = INBOUND_TAG
     else:
-        # Existing contact — fill in only missing fields
+        # Only patch truly missing fields — never overwrite existing data
         if not existing.first_name and contact_info.first_name:
             props["firstname"] = contact_info.first_name
         if not existing.last_name and contact_info.last_name:
             props["lastname"] = contact_info.last_name
         if not existing.company and contact_info.company:
             props["company"] = contact_info.company
-        if not existing.lead_source:
-            props["hs_lead_source"] = LEAD_SOURCE
-            props["hs_analytics_source_data_1"] = INBOUND_TAG
 
     return props
 
@@ -113,3 +104,20 @@ def update_contact(contact_id: str, contact_info, existing: HubSpotContact) -> b
     resp = requests.patch(url, json={"properties": props}, headers=_headers(), timeout=15)
     resp.raise_for_status()
     return True
+
+
+def create_note(contact_id: str, body: str = INBOUND_NOTE) -> str:
+    """Create a HubSpot Note and associate it with a contact. Returns note ID."""
+    note_endpoint = f"{_BASE}/crm/v3/objects/notes"
+    payload = {
+        "properties": {"hs_note_body": body, "hs_timestamp": "now"},
+        "associations": [
+            {
+                "to": {"id": contact_id},
+                "types": [{"associationCategory": "HUBSPOT_DEFINED", "associationTypeId": 202}],
+            }
+        ],
+    }
+    resp = requests.post(note_endpoint, json=payload, headers=_headers(), timeout=15)
+    resp.raise_for_status()
+    return resp.json()["id"]
