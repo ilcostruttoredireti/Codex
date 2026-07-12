@@ -165,7 +165,8 @@ def hs_create_contact(contact: dict) -> dict:
         "email": contact["email"],
         "firstname": contact["firstname"],
         "company": contact["company"],
-        "lead_source": "Gmail",
+        # EMAIL_MARKETING is the HubSpot enum value for email as acquisition source
+        "hs_analytics_source": "EMAIL_MARKETING",
     }
     if contact.get("lastname"):
         props["lastname"] = contact["lastname"]
@@ -187,8 +188,8 @@ def hs_update_contact(contact_id: str, contact: dict, existing: dict) -> dict:
         updates["lastname"] = contact["lastname"]
     if not existing_props.get("company") and contact["company"]:
         updates["company"] = contact["company"]
-    if not existing_props.get("lead_source"):
-        updates["lead_source"] = "Gmail"
+    if not existing_props.get("hs_analytics_source"):
+        updates["hs_analytics_source"] = "EMAIL_MARKETING"
 
     if not updates:
         return existing  # nothing to patch
@@ -268,7 +269,7 @@ def process_messages(service, messages: list, processed_ids: set) -> list[dict]:
         try:
             existing = hs_find_contact(email)
         except Exception as exc:
-            log.error("HubSpot lookup failed for %s: %s", email, exc)
+            log.error("HubSpot search failed for %s: %s", email, exc)
             continue
 
         try:
