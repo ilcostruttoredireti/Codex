@@ -120,6 +120,37 @@
     });
   }
 
+  // Osserva anche le richieste XMLHttpRequest (es. jQuery.ajax) senza modificare il payload.
+  if (typeof window.XMLHttpRequest === 'function') {
+    try {
+      var OrigXHR = window.XMLHttpRequest;
+      var proto = OrigXHR && OrigXHR.prototype;
+      if (proto && !proto.__ltuxs_patched) {
+        var origSend = proto.send;
+        proto.send = function () {
+          try {
+            this.addEventListener('load', function () {
+              try {
+                if (this && (this.status === 401 || this.status === 403)) {
+                  showModal();
+                } else if (this && this.getResponseHeader && typeof this.responseText === 'string') {
+                  var txt = (this.responseText || '').toLowerCase();
+                  if (txt.indexOf('rest_cookie_invalid_nonce') !== -1) {
+                    showModal();
+                  }
+                }
+              } catch (e) {}
+            });
+          } catch (e) {}
+          return origSend.apply(this, arguments);
+        };
+        proto.__ltuxs_patched = true;
+      }
+    } catch (e) {
+      // Ignora se non disponibile.
+    }
+  }
+
   // Ping periodico per anticipare la scadenza.
   function heartbeat() {
     if (!cfg.restUrl || !cfg.restNonce) return;
